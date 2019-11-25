@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order Summary</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-label>
+    Delivery Address
+  </ion-label>
+  <div style="background-color: white;">
+    {{userAddress}}
+  </div>
+  <div>
+    {{userName}}
+  </div>
+  <div>
+    {{userPhone}}
+  </div>
+  <ion-button expand='full' (click)='change()'>
+    Change Address
+  </ion-button>
+  <ion-label>
+    Order Summary
+  </ion-label>
+  <ion-item *ngFor='let item of products'>
+    <ion-label>
+      {{item.Prodname}}
+    </ion-label>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    Total Price:{{TotalPrice}}$<ion-button (click)='confirm()'>Confirm <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-footer>

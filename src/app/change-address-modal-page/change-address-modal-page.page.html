@@ -1,0 +1,22 @@
+
+<ion-content style="align-self: center;">
+  Change Address
+  <ion-item>
+      <ion-label position='floating'><ion-icon ios="ios-person" md="md-person"></ion-icon>Name</ion-label>
+      <ion-input type="text"[(ngModel)]="name">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label position='floating'> <ion-icon ios="ios-home" md="md-home"></ion-icon> New Delivery Address</ion-label>
+      <ion-input type="text"[(ngModel)]="address">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label position='floating'> <ion-icon ios="ios-call" md="md-call"></ion-icon> New Phone Number</ion-label>
+      <ion-input type="text"[(ngModel)]="Phone">
+      </ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="addAddress()">
+    Add Address 
+  </ion-button>
+</ion-content>

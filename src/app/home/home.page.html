@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Malguddi
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar></ion-searchbar>
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor='let item of categoryItems'>
+            <ion-col>
+                <ion-card>
+                  <img src={{item.categoryDownloadUrl}}/>
+                </ion-card>
+                <p class="categoryText">{{item.categoryName}}</p>
+              </ion-col>
+          </ion-slide>
+        </ion-slides>
+    <ion-grid>
+      <ion-row>
+        <ion-col size=4 (click)='productDetails(item.ProductKey,item.prodName,item.prodPrice,item.prodCategory,item.DownloadUrl,item.prodQuantity)' *ngFor="let item of productItems">
+            <ion-card>
+                <img src={{item.DownloadUrl}}/>
+                <ion-card-title><p class="productName">{{item.prodName}}</p></ion-card-title>
+                <ion-card-subtitle><p class="categoryName">in {{item.prodCategory}}</p></ion-card-subtitle>
+                <ion-card-title><p class="price">₹ {{item.prodPrice}} / {{item.prodQuantity}} piece</p></ion-card-title>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)='goToCart()'>
+        <ion-icon name="cart"></ion-icon> 
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

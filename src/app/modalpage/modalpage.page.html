@@ -1,0 +1,37 @@
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          <ion-col size=5>
+              <img src="{{ProdImage}}"/>
+          </ion-col>
+          <ion-col>
+            <ion-label>
+                {{Prodname}}<span> <ion-button fill="clear" style="color:black;margin-left:45%;position:absolute" (click)="close()"><ion-icon name="close"></ion-icon></ion-button></span>
+            </ion-label>
+            <div>
+                <ion-label>
+                    {{ProdPrice}}
+                </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-label>Size</ion-label>
+      <div><ion-label>Color</ion-label></div>
+      <div><ion-label>Quantity</ion-label></div>
+      <ion-label><ion-button fill="clear" (click)="add()"><ion-icon ios="ios-add" md="md-add"></ion-icon></ion-button><ion-label style="padding:5px;"><span style="font-size: 20px;padding-top:100px;">{{ProdQuantity}}</span></ion-label><ion-button fill="clear" (click)="remove()"><ion-icon ios="ios-remove" md="md-remove"></ion-icon></ion-button></ion-label>
+      <ion-toolbar style="margin-top: 60%;">
+          <ion-grid>
+            <ion-row>
+              <ion-col size=6>
+                <ion-button (click)="gotoCart()">Add To Cart</ion-button>
+              </ion-col>
+              <ion-col size=6>
+                  <ion-button (click)="gotoOrderSummary()">Order Now</ion-button>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-toolbar>
+</ion-content>
+  
