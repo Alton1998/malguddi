@@ -31,15 +31,15 @@ export class OrderSummaryPage implements OnInit {
     this.userid= await this.auth.auth.currentUser.uid
     let userref= this.db.database.ref('/users')
     let user_cur=userref.child(this.userid)
-    await user_cur.child('companyaddress').once('value',(res)=>
+    await user_cur.child('companyaddress').on('value',(res)=>
     {
       this.userAddress=res.val()
     })
-    await user_cur.child('phoneNumber').once('value',(res)=>{
+    await user_cur.child('phoneNumber').on('value',(res)=>{
       this.userPhone=res.val()
     }
     )
-    await user_cur.child('companyName').once('value',(res)=>
+    await user_cur.child('companyName').on('value',(res)=>
     {
       this.userName=res.val()
     })
@@ -53,13 +53,13 @@ export class OrderSummaryPage implements OnInit {
         cssClass:"my-custom-modal-css"
       }
     );
-    modalpage.onDidDismiss().then((res)=>
-    {
-      console.log(res.data)
-      this.userAddress=res.data.companyaddress
-      this.userName=res.data.companyName
-      this.userPhone=res.data.phoneNumber
-    })
+    // modalpage.onDidDismiss().then((res)=>
+    // {
+    //   console.log(res.data)
+    //   this.userAddress=res.data.companyaddress
+    //   this.userName=res.data.companyName
+    //   this.userPhone=res.data.phoneNumber
+    // })
     return await modalpage.present();
   }
   async confirm()

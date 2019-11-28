@@ -26,7 +26,7 @@ export class ChangeAddressModalPagePage implements OnInit {
     let user=this.db.database.ref('/users').child(this.auth.auth.currentUser.uid)
     await user.update({companyaddress:address,companyName:name,phoneNumber:Phone})
     this.modal.dismiss(
-      {'dismissed': true,companyaddress:address,companyName:name,phoneNumber:Phone}
+      {'dismissed': true}
     )
   }
 }

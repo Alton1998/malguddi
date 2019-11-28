@@ -11,12 +11,10 @@ import {Observable} from 'rxjs'
 export class HomePage implements OnInit{
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
-  key:Array<any>
-  something
+  categoryItems:Array<any>
   productItemsRef:AngularFireList<any>;
   proitems:Observable<any[]>
   productItems:Array<any>
-  categoryItems:Array<any>
   slideOpts = {
     initialSlide: 0,
     speed: 400,
@@ -26,15 +24,20 @@ export class HomePage implements OnInit{
     this.productItems=[]
        this.itemsRef = db.list('category');
        console.log(this.itemsRef)
-       this.items = this.itemsRef.valueChanges();
+       this.items = this.itemsRef.snapshotChanges();
        this.items.subscribe((res)=>{
-         console.log(res)
-         this.categoryItems=res
-         console.log(this.categoryItems)
+         this.categoryItems=[]
+         res.forEach((action)=>
+         {
+           let dict={}
+           dict=action.payload.val()
+           this.categoryItems.push(dict)
+         })
        });
        this.productItemsRef=db.list('/product/allProducts/');
        this.proitems=this.productItemsRef.snapshotChanges()
        this.proitems.subscribe((res)=>{
+        this.productItems=[]
          res.forEach((action)=>
          {
           //  console.log(action.payload.val())

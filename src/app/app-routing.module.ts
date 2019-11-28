@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
   { path: 'change-address-modal-page', loadChildren: './change-address-modal-page/change-address-modal-page.module#ChangeAddressModalPagePageModule' },
   { path: 'order-history', loadChildren: './order-history/order-history.module#OrderHistoryPageModule' },
+  { path: 'product-categories', loadChildren: './product-categories/product-categories.module#ProductCategoriesPageModule' },
 ];
 
 @NgModule({

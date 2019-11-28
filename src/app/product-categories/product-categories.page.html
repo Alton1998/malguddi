@@ -1,23 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>All Categories</ion-title>
+    <ion-title>Products</ion-title>
     <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
-    </ion-buttons>
+      </ion-buttons>
   </ion-toolbar>
-  
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size=4 *ngFor="let item of  categoryItems" (click)="products(item.categoryName)">
+      <ion-col size=4 *ngFor="let item of productquery" (click)="productDetails(item.prodKey,item.prodName,item.prodPrice,item.prodCategory,item.DownloadUrl,item.prodQuantity)">
         <ion-card>
-          <img src={{item.categoryDownloadUrl}}/>
+          <img src={{item.DownloadUrl}}/>
           <ion-label>
-              {{item.categoryName}}
+              {{item.prodName}}
             </ion-label>
         </ion-card>
-       
       </ion-col>
     </ion-row>
   </ion-grid>
