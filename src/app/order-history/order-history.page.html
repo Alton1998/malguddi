@@ -8,5 +8,23 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size=12 *ngFor="let item of orderItem">
+        <ion-card>
+          <ion-label>
+            {{item.key}}
+          </ion-label>
+         <div *ngFor="let pro of item.products">
+           <ion-item>
+             {{pro.Prodname}}
+           </ion-item>
+         </div>
+         <ion-button (click)="repeatOrder(item.products)">
+           Repeat Order
+         </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
