@@ -5,31 +5,38 @@
   <ion-img style="width:40%;height:40%;position: relative;top:10%;bottom:auto;left:35%;right:auto;" src="https://firebasestorage.googleapis.com/v0/b/netherlands-54cf0.appspot.com/o/Logos%2FGroup%202429.svg?alt=media&token=06c4251b-3daa-406e-8aeb-bfefd8b531ea"></ion-img>
   <ion-text><h1 class='loginText'>Login</h1></ion-text>
   <ion-text><h6 style="opacity: 0.6;position: relative;left: 20%;right:auto;">Please sign in to continue.</h6></ion-text>
-  <ion-chip outline="true">
+  <ion-chip outline="true" style="border-radius:0px;width:80%;height:10%;position:relative;left:10%;right:auto">
       <ion-input type="email" [(ngModel)]="email" placeholder="Email">
           <ion-icon name="mail"></ion-icon>
       </ion-input>
   </ion-chip>
-      
-<ion-item>
-    <ion-label position="floating">
-      Password
-    </ion-label>
-    <ion-input type="password" [(ngModel)]="password">
+  <ion-chip outline="true" style="border-radius:0px;width:80%;height:10%;position:relative;left:10%;right:auto">
+    <ion-input type="password" [(ngModel)]="password" placeholder="Password">
+        <ion-icon name="lock"></ion-icon>
     </ion-input>
-  </ion-item>
+  </ion-chip>
   <ion-grid>
     <ion-row>
-      <ion-col>
-          <div class="forgot-password">
-              <a>Forgot Password?</a>
-            </div>
-      </ion-col>
+        <ion-col style="align-self: stretch;position: relative;left:55%;right:auto;bottom:10px;">
+            <div class="forgot-password">
+                <a style="color: #FFC315;">Forgot Password?</a>
+              </div>
+        </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-          <div style="font-size: 14px;margin-top: 42px;">
-              Don't have an account?<span style="position: absolute;top: 45%;"><ion-button fill="clear" routerLink="/register"><p style="font-size: 15px;">Register<p></p></ion-button></span>
+          <ion-button expand="block" (click)="login()" class='loginbutton' shape="round" style="width:50%;position:relative;left:26%;right:auto;--background-hover:#F22E3D">
+              Login <ion-icon name="arrow-round-forward"></ion-icon>
+            </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      
+    </ion-row>
+    <ion-row>
+      <ion-col style="align-self: stretch;">
+          <div style="font-size: 14px;margin-top: 42px;position: relative;left:10%;right:auto;">
+              Don't have an account?<span (click)="register()"style="position:relative;left:2%;color:#F22E3D;">Register Now</span>
             </div>
       </ion-col>
     </ion-row>
@@ -38,8 +45,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-      <ion-button expand="block" (click)="login()" class='loginbutton'>
-          Login
-        </ion-button>
+     
   </ion-toolbar>
 </ion-footer>
