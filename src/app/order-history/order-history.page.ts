@@ -25,7 +25,8 @@ export class OrderHistoryPage implements OnInit {
        res.forEach((action)=>
        {
          let dict={}
-         dict['products']=action.payload.val()
+         dict['date']=action.payload.val().date
+         dict['products']=action.payload.val().products
          dict['key']=action.payload.key
          console.log(dict)
          this.orderItem.push(dict)
@@ -44,5 +45,4 @@ export class OrderHistoryPage implements OnInit {
     console.log(order)
     this.router.navigateByUrl('/order-summary',{state:{products:order}})
   }
-  
 }

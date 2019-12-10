@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Order history</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button default-href="/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
       <ion-col size=12 *ngFor="let item of orderItem">
         <ion-card>
           <ion-label>
-            {{item.key}}
+            {{item.date}}
           </ion-label>
          <div *ngFor="let pro of item.products">
            <ion-item>

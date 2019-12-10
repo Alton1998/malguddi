@@ -1,17 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-item>
-  <ion-label position="floating">
-    E-mail
-  </ion-label>
-  <ion-input type="email" [(ngModel)]="email">
-  </ion-input>
-</ion-item>
+  <ion-img style="width:40%;height:40%;position: relative;top:10%;bottom:auto;left:35%;right:auto;" src="https://firebasestorage.googleapis.com/v0/b/netherlands-54cf0.appspot.com/o/Logos%2FGroup%202429.svg?alt=media&token=06c4251b-3daa-406e-8aeb-bfefd8b531ea"></ion-img>
+  <ion-text><h1 class='loginText'>Login</h1></ion-text>
+  <ion-text><h6 style="opacity: 0.6;position: relative;left: 20%;right:auto;">Please sign in to continue.</h6></ion-text>
+  <ion-chip outline="true">
+      <ion-input type="email" [(ngModel)]="email" placeholder="Email">
+          <ion-icon name="mail"></ion-icon>
+      </ion-input>
+  </ion-chip>
+      
 <ion-item>
     <ion-label position="floating">
       Password
@@ -39,7 +38,7 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-      <ion-button expand="block" (click)="login()">
+      <ion-button expand="block" (click)="login()" class='loginbutton'>
           Login
         </ion-button>
   </ion-toolbar>

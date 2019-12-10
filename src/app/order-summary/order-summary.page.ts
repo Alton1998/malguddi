@@ -4,7 +4,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ModalController, ToastController } from '@ionic/angular';
 import { ChangeAddressModalPagePage } from '../change-address-modal-page/change-address-modal-page.page';
-
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.page.html',
@@ -17,14 +16,20 @@ export class OrderSummaryPage implements OnInit {
   userName:any
   userPhone:any
   TotalPrice:any
+  date:any
   constructor(private router:Router,private auth:AngularFireAuth,private db:AngularFireDatabase,private modal:ModalController,private toastcontroller:ToastController) {
     const{products}=this.router.getCurrentNavigation().extras.state
     this.products=products
     this.TotalPrice=0
     this.products.forEach(element => {
-      this.TotalPrice=this.TotalPrice+(element.ProdPrice*element.ProdQuantity)
+    this.TotalPrice=this.TotalPrice+(element.ProdPrice*element.ProdQuantity)
     });
     console.log(this.products)
+    let date=new Date()
+    console.log(date.getDate())
+    console.log(date.getMonth())
+    console.log(date.getFullYear())
+    this.date=date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear()
    }
 
   async ngOnInit() {
@@ -64,9 +69,9 @@ export class OrderSummaryPage implements OnInit {
   }
   async confirm()
   {
-    let key=this.db.database.ref('/users').child(this.userid).child('orders').push(this.products).key
+    let key=this.db.database.ref('/users').child(this.userid).child('orders').push({date:this.date,products:this.products}).key
     this.db.database.ref('/users').child(this.userid).child('cart').remove()
-    this.db.database.ref('/orders').child(key).set({customerid:this.userid})
+    this.db.database.ref('/orders').child(key).set({customerid:this.userid,date:this.date})
     const toast=await this.toastcontroller.create({
       message:"Order Placed",
       duration:2000
