@@ -65,5 +65,9 @@ export class HomePage implements OnInit{
     {
       this.router.navigate(['cart'])
     }
+    products(categoryName)
+    {
+      this.router.navigateByUrl('/product-categories',{state:{category:categoryName}})
+    }
   
 }
